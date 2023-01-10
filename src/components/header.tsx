@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   createStyles,
   Header,
@@ -10,7 +10,7 @@ import {
   Transition,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 const HEADER_HEIGHT = 60
 
@@ -100,25 +100,18 @@ interface HeaderResponsiveProps {
 
 const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
   const [opened, { toggle, close }] = useDisclosure(false)
-  const [active, setActive] = useState(links[0].link)
-  const { classes, cx } = useStyles()
-  const router = useRouter()
+  const { classes } = useStyles()
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.link}
       href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault()
-        setActive(link.link)
+      className={classes.link}
+      onClick={(e) => {
         close()
-        router.push(link.link)
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ))
 
   return (
