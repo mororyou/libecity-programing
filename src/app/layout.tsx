@@ -1,6 +1,9 @@
+'use client'
 import Footer from '../components/footer'
-import Header from '../components/header'
-import ReactQueryWrapper from '../ReactQueryWrapper'
+import HeaderResponsive from '../components/header'
+import { HEADER_LINKS } from '../constant/common'
+import RootStyleRegistry from './emotion'
+import ReactQueryWrapper from './ReactQueryWrapper'
 import '../styles/globals.css'
 
 export default function RootLayout({
@@ -12,11 +15,15 @@ export default function RootLayout({
     <html lang="ja">
       <head />
       <body className="flex min-h-screen flex-col items-center justify-center font-mono text-gray-800">
-        <Header />
-        <main className="flex w-screen flex-1 flex-col items-center">
-          <ReactQueryWrapper>{children}</ReactQueryWrapper>
-        </main>
-        <Footer />
+        <RootStyleRegistry>
+          <ReactQueryWrapper>
+            <HeaderResponsive links={HEADER_LINKS} />
+            <main className="flex w-screen flex-1 flex-col items-center">
+              {children}
+            </main>
+            <Footer />
+          </ReactQueryWrapper>
+        </RootStyleRegistry>
       </body>
     </html>
   )

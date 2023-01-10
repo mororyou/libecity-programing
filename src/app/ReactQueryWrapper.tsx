@@ -2,7 +2,7 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { reactQueryOptions } from './constant/reactQuery'
+import { reactQueryOptions } from '../constant/reactQuery'
 
 const queryClient = new QueryClient({
   defaultOptions: {
