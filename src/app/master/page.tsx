@@ -19,7 +19,7 @@ const Master = () => {
             <MastersCard
               title="Tag Settings"
               description="Lightning Talkを登録時に利用するタグ"
-              link="/master/category"
+              link="/master/tag"
             />
           </div>
         </div>
