@@ -18,13 +18,13 @@ export const MasterFormMemo: FC<Props> = ({
     e.preventDefault()
     if (edited.id === '') {
       createMutation.mutate({
-        name: edited.name,
+        name: edited?.name,
         order: 0,
       })
     } else {
       updateMutation.mutate({
-        id: edited.id,
-        name: edited.name,
+        id: edited?.id,
+        name: edited?.name,
         order: 0,
       })
     }
@@ -35,13 +35,18 @@ export const MasterFormMemo: FC<Props> = ({
       <div className="grid grid-cols-8 items-center gap-x-4">
         <div className="col-span-8 md:col-span-7">
           <input
+            type={'text'}
             className="w-full rounded-sm border py-2 px-1 text-sm"
             value={edited.name}
             onChange={(e) => update({ ...edited, name: e.target.value })}
           />
         </div>
         <div className="col-span-8 md:col-span-1">
-          <button type="submit" className="rounded border py-1 px-3">
+          <button
+            type="submit"
+            className="rounded border py-1 px-3"
+            disabled={!edited.name}
+          >
             {edited.id ? 'Update' : 'Create'}
           </button>
         </div>
