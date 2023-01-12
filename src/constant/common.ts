@@ -15,10 +15,6 @@ export const HEADER_LINKS = [
     label: 'カレンダー',
   },
   {
-    link: 'user',
-    label: 'ユーザー',
-  },
-  {
     link: 'master',
     label: 'マスタ設定',
   },

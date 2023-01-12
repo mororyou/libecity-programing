@@ -21,6 +21,11 @@ const Master = () => {
               description="Lightning Talkを登録時に利用するタグ"
               link="/master/tag"
             />
+            <MastersCard
+              title="User"
+              description="管理者や発表者に利用するユーザー情報"
+              link="/master/user"
+            />
           </div>
         </div>
       </section>
