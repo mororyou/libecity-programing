@@ -7,7 +7,7 @@ export default function useQUeryTags() {
     const { data, error } = await supabase
       .from('pg_event_tags')
       .select('*')
-      .order('created_at', { ascending: true })
+      .order('name', { ascending: true })
 
     if (error) throw Error(error.message)
 
