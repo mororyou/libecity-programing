@@ -12,12 +12,12 @@ const Master = () => {
           </div>
           <div className="-m-4 flex flex-wrap">
             <MastersCard
-              title="Category Settings"
+              title="Category"
               description="Event登録時に利用するカテゴリ"
               link="/master/category"
             />
             <MastersCard
-              title="Tag Settings"
+              title="Tag"
               description="Lightning Talkを登録時に利用するタグ"
               link="/master/tag"
             />

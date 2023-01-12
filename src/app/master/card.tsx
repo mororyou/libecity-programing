@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const MastersCard: FC<Props> = ({ title, description, link }) => (
-  <div className="w-11/12 p-4 md:w-1/2 lg:w-1/3">
+  <div className="w-full p-4 md:w-1/2 lg:w-1/3">
     <div className="flex h-full w-full flex-col rounded-lg bg-gray-100 p-8">
       <div className="mb-3 flex items-center">
         <div className="mr-3 inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500 text-white">

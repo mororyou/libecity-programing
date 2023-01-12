@@ -15,11 +15,15 @@ export const HEADER_LINKS = [
     label: 'カレンダー',
   },
   {
+    link: 'user',
+    label: 'ユーザー',
+  },
+  {
     link: 'master',
     label: 'マスタ設定',
   },
   {
-    link: 'user',
-    label: 'ユーザー設定',
+    link: 'movies',
+    label: '学長動画',
   },
 ]
