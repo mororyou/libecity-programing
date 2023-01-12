@@ -9,14 +9,12 @@ type Props = {
   update: any
 }
 
-const TableRecordMemo: FC<Props> = ({ id, name, order, update }) => {
+const CardMemo: FC<Props> = ({ id, name, order, update }) => {
   return (
-    <li className="flex flex-nowrap items-center py-2">
-      <span>
-        {id} - {name} - {order}
-      </span>
+    <div className="col-span-1 grid grid-cols-12 gap-x-4 rounded-md border py-8 px-6 shadow-md">
+      <p className="col-span-10 font-mono text-lg font-bold">{name}</p>
       <IconWritingSign
-        className="ml-4 h-6 w-6"
+        className="col-span-1 h-6 w-6"
         onClick={() => {
           update({
             id: id,
@@ -25,8 +23,8 @@ const TableRecordMemo: FC<Props> = ({ id, name, order, update }) => {
           })
         }}
       />
-    </li>
+    </div>
   )
 }
 
-export const TableRecord = memo(TableRecordMemo)
+export const Card = memo(CardMemo)

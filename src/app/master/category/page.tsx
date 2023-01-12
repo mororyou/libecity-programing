@@ -1,7 +1,7 @@
 'use client'
 import { IconBeach } from '@tabler/icons'
 import { MasterForm } from '../../../components/master/form'
-import { TableRecord } from '../../../components/master/tr'
+import { Card } from '../../../components/master/card'
 import PageTitle from '../../../components/title'
 import { useMutateCategory } from '../../../hooks/category/useMutateCategory'
 import useQueryCategories from '../../../hooks/category/useQueryCategories'
@@ -28,7 +28,6 @@ const Categories = () => {
         icon={<IconBeach className="h-8 w-8" />}
         title={'Category Master'}
       />
-
       {/* Form */}
       <MasterForm
         edited={editedCategory}
@@ -36,22 +35,23 @@ const Categories = () => {
         createMutation={createCategoryMutation}
         updateMutation={updateCategoryMutation}
       />
-
       <hr className="my-8" />
-
       {/* Table */}
-      {categories &&
-        categories.map((category) => {
-          return (
-            <TableRecord
-              key={category.id}
-              id={category.id}
-              name={category.name}
-              order={category.order}
-              update={update}
-            />
-          )
-        })}
+
+      <div className="col-span-1 grid gap-y-4 md:grid-cols-4 md:gap-x-4 md:gap-y-8">
+        {categories &&
+          categories.map((category) => {
+            return (
+              <Card
+                key={category.id}
+                id={category.id}
+                name={category.name}
+                order={category.order}
+                update={update}
+              />
+            )
+          })}
+      </div>
     </div>
   )
 }

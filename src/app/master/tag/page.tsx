@@ -1,7 +1,7 @@
 'use client'
 import { IconBeach } from '@tabler/icons'
 import { MasterForm } from '../../../components/master/form'
-import { TableRecord } from '../../../components/master/tr'
+import { Card } from '../../../components/master/card'
 import PageTitle from '../../../components/title'
 import { useMutateTag } from '../../../hooks/tag/useMutateTag'
 import useQUeryTags from '../../../hooks/tag/useQueryTags'
@@ -40,18 +40,20 @@ const Tags = () => {
       <hr className="my-8" />
 
       {/* Table */}
-      {tags &&
-        tags.map((tag) => {
-          return (
-            <TableRecord
-              key={tag.id}
-              id={tag.id}
-              name={tag.name}
-              order={tag.order}
-              update={update}
-            />
-          )
-        })}
+      <div className="col-span-1 grid gap-y-4 md:grid-cols-4 md:gap-x-4 md:gap-y-8">
+        {tags &&
+          tags.map((tag) => {
+            return (
+              <Card
+                key={tag.id}
+                id={tag.id}
+                name={tag.name}
+                order={tag.order}
+                update={update}
+              />
+            )
+          })}
+      </div>
     </div>
   )
 }
