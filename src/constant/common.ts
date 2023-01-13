@@ -11,11 +11,11 @@ export const HEADER_LINKS = [
     key: 'event',
     label: 'イベント一覧',
   },
-  {
-    key: 'calendar',
-    link: '/calendar',
-    label: 'カレンダー',
-  },
+  // {
+  //   key: 'calendar',
+  //   link: '/calendar',
+  //   label: 'カレンダー',
+  // },
   {
     key: 'movie',
     link: '/movies',
