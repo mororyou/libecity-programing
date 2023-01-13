@@ -1,3 +1,11 @@
+export const UserState = {
+  id: '',
+  name: '',
+  url: '',
+  ip: '',
+  avatar: '',
+}
+
 export const CategoryState = {
   id: '',
   name: '',

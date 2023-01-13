@@ -11,6 +11,7 @@ import {
 import { useDisclosure } from '@mantine/hooks'
 import { IconBrandTabler } from '@tabler/icons'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const HEADER_HEIGHT = 60
 
@@ -95,17 +96,21 @@ const useStyles = createStyles((theme) => ({
 }))
 
 interface HeaderResponsiveProps {
-  links: { link: string; label: string }[]
+  links: { key: string; link: string; label: string }[]
+  active: string
 }
 
-const HeaderResponsive = ({ links }: HeaderResponsiveProps) => {
+const HeaderResponsive = ({ links, active }: HeaderResponsiveProps) => {
   const [opened, { toggle, close }] = useDisclosure(false)
-  const { classes } = useStyles()
+  // const [active, setActive] = useState(activeLink)
+  const { classes, cx } = useStyles()
   const items = links.map((link) => (
     <Link
-      key={link.link}
+      key={link.key}
       href={link.link}
-      className={classes.link}
+      className={cx(classes.link, {
+        [classes.linkActive]: active === link.key,
+      })}
       onClick={(e) => {
         close()
       }}

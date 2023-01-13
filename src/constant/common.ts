@@ -8,18 +8,22 @@ export const COPY_RIGHT = '© 2023 [非公式]リベシティPG部'
 export const HEADER_LINKS = [
   {
     link: '/',
+    key: 'event',
     label: 'イベント一覧',
   },
+  // {
+  //   key: 'calendar',
+  //   link: '/calendar',
+  //   label: 'カレンダー',
+  // },
   {
-    link: 'calendar',
-    label: 'カレンダー',
-  },
-  {
-    link: 'master',
-    label: 'マスタ設定',
-  },
-  {
-    link: 'movies',
+    key: 'movie',
+    link: '/movies',
     label: '学長動画',
+  },
+  {
+    key: 'master',
+    link: '/master',
+    label: 'マスタ設定',
   },
 ]
