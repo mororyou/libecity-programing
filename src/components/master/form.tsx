@@ -32,8 +32,9 @@ export const MasterFormMemo: FC<Props> = ({
 
   return (
     <form onSubmit={submitEventHandler}>
-      <div className="grid grid-cols-8 items-center gap-x-4">
-        <div className="col-span-8 md:col-span-7">
+      <div className="grid grid-cols-8 items-center gap-x-4 gap-y-4">
+        {/* Input */}
+        <div className="col-span-8 md:col-span-5">
           <input
             type={'text'}
             className="w-full rounded-sm border py-2 px-1 text-sm"
@@ -41,13 +42,21 @@ export const MasterFormMemo: FC<Props> = ({
             onChange={(e) => update({ ...edited, name: e.target.value })}
           />
         </div>
-        <div className="col-span-8 md:col-span-1">
+
+        {/* Store Button */}
+        <div className="col-span-4 flex items-center justify-center md:col-span-1">
           <button
             type="submit"
             className="rounded border py-1 px-3"
             disabled={!edited.name}
           >
             {edited.id ? 'Update' : 'Create'}
+          </button>
+        </div>
+        {/* Reset Button */}
+        <div className="col-span-4 flex items-center justify-center md:col-span-1">
+          <button type="reset" className="rounded border py-1 px-3">
+            Reset
           </button>
         </div>
       </div>
