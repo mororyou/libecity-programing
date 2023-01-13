@@ -3,7 +3,7 @@ export const UserState = {
   name: '',
   url: '',
   ip: '',
-  avator: '',
+  avatar: '',
 }
 
 export const CategoryState = {

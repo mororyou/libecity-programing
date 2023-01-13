@@ -9,7 +9,7 @@ export const useSUbscribeUsers = () => {
 
   useEffect(() => {
     const subsc = supabase
-      .from('pg_event_users')
+      .from('pg_users')
       .on('INSERT', (payload: SupabaseRealtimePayload<User>) => {
         let previousUsers = queryClient.getQueryData<User[]>(['users'])
         if (!previousUsers) {
@@ -22,7 +22,7 @@ export const useSUbscribeUsers = () => {
             {
               id: payload.new.id,
               name: payload.new.name,
-              avator: payload.new.avator,
+              avatar: payload.new.avatar,
               url: payload.new.url,
               ip: payload.new.ip,
               created_at: payload.new.created_at,
@@ -44,7 +44,7 @@ export const useSUbscribeUsers = () => {
               ? {
                   id: payload.new.id,
                   name: payload.new.name,
-                  avator: payload.new.avator,
+                  avatar: payload.new.avatar,
                   url: payload.new.url,
                   ip: payload.new.ip,
                   created_at: payload.new.created_at,

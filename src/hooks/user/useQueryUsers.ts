@@ -5,7 +5,7 @@ import { supabase } from '../../utils/supbase'
 export default function useQueryUsers() {
   const getUsers = async () => {
     const { data, error } = await supabase
-      .from('pg_event_users')
+      .from('pg_users')
       .select('*')
       .order('name', { ascending: true })
 

@@ -36,7 +36,7 @@ export type User = {
   name: string
   url: string
   ip: string
-  avator: string
+  avatar: string
   created_at: string
   updated_at: string
   delflg: boolean
@@ -46,5 +46,5 @@ export type EditedUser = {
   id: string
   name: string
   url: string
-  avator: string
+  avatar: string
 }

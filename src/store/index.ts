@@ -61,7 +61,7 @@ const useStore = create<State>((set) => ({
         id: payload.id,
         name: payload.name,
         url: payload.url,
-        avator: payload.avator,
+        avatar: payload.avatar,
       },
     }),
   resetEditedUser: () =>

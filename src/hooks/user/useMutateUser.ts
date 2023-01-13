@@ -30,11 +30,11 @@ export const useMutateUser = () => {
   const updateUserMutation = useMutation(
     async (user: EditedUser) => {
       const { data, error } = await supabase
-        .from('pg_event_users')
+        .from('pg_users')
         .update({
           name: user.name,
           url: user.url,
-          avator: user.avator,
+          avatar: user.avatar,
         })
         .eq('id', user.id)
 
