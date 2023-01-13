@@ -11,6 +11,7 @@ import useStore from '../../../store'
 const TagMaster = () => {
   const editedTag = useStore((state) => state.editedTag)
   const update = useStore((state) => state.updateEditedTag)
+  const reset = useStore((state) => state.resetEditedTag)
   const { createTagMutation, updateTagMutation } = useMutateTag()
 
   const { data: tags } = useQueryTags()
@@ -28,6 +29,7 @@ const TagMaster = () => {
         <MasterForm
           edited={editedTag}
           update={update}
+          reset={reset}
           createMutation={createTagMutation}
           updateMutation={updateTagMutation}
         />

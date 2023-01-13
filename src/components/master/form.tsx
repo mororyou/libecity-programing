@@ -4,6 +4,7 @@ import { EditedCategory, EditedTag } from '../../types/master'
 type Props = {
   edited: EditedCategory | EditedTag
   update: ((payload: EditedCategory) => void) | ((payload: EditedTag) => void)
+  reset: () => void
   createMutation: any
   updateMutation: any
 }
@@ -11,6 +12,7 @@ type Props = {
 export const MasterFormMemo: FC<Props> = ({
   edited,
   update,
+  reset,
   createMutation,
   updateMutation,
 }) => {
@@ -55,7 +57,11 @@ export const MasterFormMemo: FC<Props> = ({
         </div>
         {/* Reset Button */}
         <div className="col-span-4 flex items-center justify-center md:col-span-1">
-          <button type="reset" className="rounded border py-1 px-3">
+          <button
+            type="button"
+            className="rounded border py-1 px-3"
+            onClick={() => reset()}
+          >
             Reset
           </button>
         </div>

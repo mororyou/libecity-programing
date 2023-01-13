@@ -11,6 +11,8 @@ import useStore from '../../../store'
 const UserMaster = () => {
   const editedCategory = useStore((state) => state.editedCategory)
   const update = useStore((state) => state.updateEditedCategory)
+  const reset = useStore((state) => state.resetEditedUser)
+
   const { createCategoryMutation, updateCategoryMutation } = useMutateCategory()
 
   const { data: categories } = useQueryCategories()
@@ -27,6 +29,7 @@ const UserMaster = () => {
         <MasterForm
           edited={editedCategory}
           update={update}
+          reset={reset}
           createMutation={createCategoryMutation}
           updateMutation={updateCategoryMutation}
         />
