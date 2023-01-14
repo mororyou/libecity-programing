@@ -1,40 +1,62 @@
-import { memo } from 'react'
-import Calendar from '@toast-ui/react-calendar'
-import '@toast-ui/calendar/dist/toastui-calendar.min.css'
+import FullCalendar, { EventContentArg } from '@fullcalendar/react'
+import allLocales from '@fullcalendar/core/locales-all'
+import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import { memo, useState } from 'react'
+import format from 'date-fns/format'
+import ja from 'date-fns/locale/ja'
 
-const TuiCalendarMemo = () => {
-  const calendars = [{ id: 'cal1', name: 'Personal' }]
+type Props = {
+  status: string
+  prefectures: string
+}
 
-  const initialEvents = [
-    {
-      id: '1',
-      calendarId: 'cal1',
-      title: 'Lunch',
-      category: 'time',
-      start: '2023-01-28T12:00:00',
-      end: '2023-01-28T13:30:00',
-    },
-    {
-      id: '2',
-      calendarId: 'cal1',
-      title: 'Coffee Break',
-      category: 'time',
-      start: '2023-01-14T15:00:00',
-      end: '2023-01-15T15:30:00',
-    },
-  ]
+export const CalendarMemo = () => {
+  const [day, setDay] = useState({
+    date: '',
+    count: 0,
+    events: {},
+  })
+
+  const handleDateClick = async (arg: DateClickArg) => {}
+
+  const handleLabelClick = async (date: string) => {}
+
+  const getDayEventHandler = async (date: string) => {}
+
+  const getCalendarData = async (
+    arg: any,
+    status: string,
+    successCallback: any,
+    failureCallback: any
+  ) => {
+    try {
+      const startDate = await format(arg.start, 'yyyy-MM-dd')
+      const endDate = await format(arg.start, 'yyyy-MM-dd')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
-    <Calendar
-      height="100%"
-      view="month"
-      month={{
-        dayNames: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      }}
-      calendars={calendars}
-      events={initialEvents}
-    />
+    <>
+      <FullCalendar
+        plugins={[dayGridPlugin, interactionPlugin]}
+        initialView="dayGridMonth"
+        locale="ja"
+        height={'auto'}
+        headerToolbar={{
+          start: 'title',
+          center: '',
+          end: 'today prev,next',
+        }}
+      />
+    </>
   )
 }
 
-export const TuiCalendar = memo(TuiCalendarMemo)
+const renderEventContent = (arg: EventContentArg, handleLabelClick: any) => {
+  return <div></div>
+}
+
+export const Calendar = memo(CalendarMemo)

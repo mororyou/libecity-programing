@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+td.fc-day-sat {
+    background-color: rgb(234, 244, 255, 0.7)!important;
+}
+td.fc-day-sun {
+    background-color: rgb(255, 234, 234, 0.7)!important;
+}

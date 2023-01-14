@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 
-const withTM = require('next-transpile-modules')([])
+const withTM = require('next-transpile-modules')([
+  '@fullcalendar/common',
+  '@fullcalendar/common',
+  '@fullcalendar/daygrid',
+  '@fullcalendar/react',
+])
 
-module.exports = withTM({
+const options = {
   reactStrictMode: true,
   swcMinify: true,
-})
+}
+
+module.exports = withTM(options)

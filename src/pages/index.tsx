@@ -3,14 +3,7 @@ import { Icon360View } from '@tabler/icons'
 import Layout from '../components/layout'
 import PageTitle from '../components/title'
 import dynamic, { Loader } from 'next/dynamic'
-
-const AvoidSSRComponent = dynamic(
-  () =>
-    import('../components/event/calendar').then(
-      (modules) => modules.TuiCalendar
-    ),
-  { ssr: false }
-)
+import { Calendar } from '../components/event/calendar'
 
 const Home: NextPage = () => {
   return (
@@ -21,7 +14,7 @@ const Home: NextPage = () => {
           title="イベント"
         />
         <div className="h-[60vh]">
-          <AvoidSSRComponent />
+          <Calendar />
         </div>
       </div>
     </Layout>
